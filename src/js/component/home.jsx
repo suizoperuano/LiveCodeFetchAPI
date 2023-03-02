@@ -1,22 +1,33 @@
 import React from "react";
+import SpecialButton from "./SpecialButton.jsx";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
-	return (
-		function runFirst(){
-			console.log("first");
-		}
-		function runSecond(){
-			console.log("second");
-		}
+
+	function runFirst(someFunction){
+		console.log("I want to run first");
+		someFunction();
 		runSecond();
-		runFirst();
+		console.log("I also want to run when runFirst runs");
+	}
+	function runSecond(){
+		console.log("Where am I running?");
+	}
+	runFirst(aThirdOne);
+	
+	function aThirdOne(){
+		console.log("this is crazy");
+	}
+
+
+	return (
+
 
 		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
+			<h1 className="text-center mt-5">Hello Rigo! <SpecialButton handleSomething={runSecond}></SpecialButton></h1>
 			<p>
 				<img src={rigoImage} />
 			</p>
